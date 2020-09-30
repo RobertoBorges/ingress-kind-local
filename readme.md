@@ -51,3 +51,26 @@ kubectl apply -f .\ingress-nginx.yaml
 ```console
 kubectl apply -f .\demo.yaml
 ```
+
+## 5 - Run nginx locally
+
+Get the name of the ingress control with the following command e.g.: `ingress-nginx-controller-6967fb79f6-vrbmr`
+
+```console
+kubectl get pods -n ingress-nginx
+PS C:\ingress-kind-local> kubectl get po -n ingress-nginx
+NAME                                        READY   STATUS      RESTARTS   AGE
+ingress-nginx-admission-create-sc46m        0/1     Completed   0          5h16m
+ingress-nginx-admission-patch-dhfls         0/1     Completed   1          5h16m
+ingress-nginx-controller-6967fb79f6-vrbmr   1/1     Running     0          5h16m
+
+```
+
+Then run a port-forward from kubernetes
+
+```console
+PS C:\ingress-kind-local> kubectl port-forward ingress-nginx-controller-6967fb79f6-vrbmr -n ingress-nginx 3444:80
+
+```
+
+Navigate to `http://localhost:3444/` or `http://localhost:3444/demo` and check the result.
