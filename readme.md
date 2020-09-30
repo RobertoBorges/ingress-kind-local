@@ -42,13 +42,13 @@ kind delete cluster
 
 ## 3 - Create nginx
 
-```console
+```powershell
 kubectl apply -f .\ingress-nginx.yaml
 ```
 
 ## 4 - Create the DemoApp
 
-```console
+```powershell
 kubectl apply -f .\demo.yaml
 ```
 
@@ -56,9 +56,9 @@ kubectl apply -f .\demo.yaml
 
 Get the name of the ingress control with the following command e.g.: `ingress-nginx-controller-6967fb79f6-vrbmr`
 
-```console
+```powershell
 kubectl get pods -n ingress-nginx
-PS C:\ingress-kind-local> kubectl get po -n ingress-nginx
+C:\ingress-kind-local> kubectl get po -n ingress-nginx
 NAME                                        READY   STATUS      RESTARTS   AGE
 ingress-nginx-admission-create-sc46m        0/1     Completed   0          5h16m
 ingress-nginx-admission-patch-dhfls         0/1     Completed   1          5h16m
